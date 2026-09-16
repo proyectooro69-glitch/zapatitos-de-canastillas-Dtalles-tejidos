@@ -1,1 +1,19 @@
+from pathlib import Path
+
+p = Path("/mnt/data/detalles-tejidos-zapatitos.html")
+text = p.read_text(encoding="utf-8")
+
+# Replace the two placeholder WhatsApp links with the real number.
+text = text.replace(
+    "https://wa.me/?text=Hola%20Detalles%20Tejidos%2C%20estoy%20interesado%2Fa%20en%20los%20zapatitos%20de%20canastilla.",
+    "https://wa.me/5353927796?text=Hola%20Detalles%20Tejidos%2C%20estoy%20interesado%2Fa%20en%20los%20zapatitos%20de%20canastilla."
+)
+text = text.replace(
+    "https://wa.me/?text=Hola%20Detalles%20Tejidos%2C%20quiero%20consultar%20los%20zapatitos%20de%20canastilla.",
+    "https://wa.me/5353927796?text=Hola%20Detalles%20Tejidos%2C%20quiero%20consultar%20los%20zapatitos%20de%20canastilla."
+)
+
+p.write_text(text, encoding="utf-8")
+print("Número de WhatsApp actualizado: +53 53927796")
+print(p)
 
